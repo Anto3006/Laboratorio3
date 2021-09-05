@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "IMC";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultado IMC Aleatorio</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <!--aquí inicia el cuerpo de la página que se está creando (la vista)-->
+    <h1>Resultado</h1>
+    <div class="seccion_1" id="s1">
+        <a href="/"class="btn btn-info">Volver al inicio</a>
+    </div>
+    <div class="seccion_2" id="s2">
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Peso</th>
+                <th>Estatura</th>
+                <th>IMC</th>
+            </tr>
+            @for (int fila = 0; fila < 30; ++fila)
+            {
+                <tr>
+                    <td>@ViewBag.personas[fila].Id</td>
+                    <td>@ViewBag.personas[fila].Nombre</td>
+                    <td>@ViewBag.personas[fila].Peso</td>
+                    <td>@ViewBag.personas[fila].Estatura</td>
+                    @if (@ViewBag.IMCS[fila] >= 18.5 && @ViewBag.IMCS[fila] <= 24.9)
+                    {
+                        <td style="color:green">@ViewBag.IMCS[fila]</td>
+                    }
+                    else
+                    {
+                        <td style="color:red">@ViewBag.IMCS[fila]</td>
+                    }
+                </tr>
+            }
+        </table>
+        <hr />
+    </div>
+</body>
+</html>
+
